@@ -5,13 +5,13 @@ USE logistica;
 
 CREATE TABLE paises (
     pais_id INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
+    nombre VARCHAR(56),
     CONSTRAINT pk_pais_id_paises PRIMARY KEY (pais_id)
 );
 
 CREATE TABLE ciudades (
     ciudad_id INT AUTO_INCREMENT,
-    nombre VARCHAR(100),
+    nombre VARCHAR(50),
     pais_id INT,
     CONSTRAINT pk_ciudad_id_ciudades PRIMARY KEY (ciudad_id),
     CONSTRAINT fk_ciudad_pais_ciudades FOREIGN KEY (pais_id) REFERENCES paises(pais_id)
@@ -19,8 +19,8 @@ CREATE TABLE ciudades (
 
 CREATE TABLE sucursales (
     sucursal_id INT AUTO_INCREMENT,
-    nombre VARCHAR(200),
-    direccion VARCHAR(200),
+    nombre VARCHAR(100),
+    direccion VARCHAR(100),
     ciudad_id INT,
     CONSTRAINT pk_sucursal_id_sucursales PRIMARY KEY (sucursal_id),
     CONSTRAINT fk_sucursal_ciudad_sucursales FOREIGN KEY (ciudad_id) REFERENCES ciudades(ciudad_id)
@@ -35,9 +35,9 @@ CREATE TABLE marcas (
 CREATE TABLE tipo_vehiculo (
     tipo_vehiculo_id INT AUTO_INCREMENT,
     marca_id INT,
-    modelo VARCHAR(100),
+    modelo VARCHAR(40),
     año_modelo VARCHAR(4),
-    descripcion VARCHAR(20),
+    descripcion VARCHAR(50),
     CONSTRAINT pk_tipo_vehiculo_id_tipo_vehiculo PRIMARY KEY (tipo_vehiculo_id),
     CONSTRAINT fk_tipo_vehiculo_marca_tipo_vehiculo FOREIGN KEY (marca_id) REFERENCES marcas(marca_id)
 );
@@ -55,7 +55,7 @@ CREATE TABLE vehiculos (
 
 CREATE TABLE disponibilidad (
     disponibilidad_id INT AUTO_INCREMENT,
-    estado VARCHAR(20),
+    estado BIT,
     CONSTRAINT pk_disponibilidad_id_disponibilidad PRIMARY KEY (disponibilidad_id)
 );
 
@@ -96,7 +96,7 @@ CREATE TABLE conductores_rutas (
 CREATE TABLE auxiliares (
     auxiliar_id INT AUTO_INCREMENT,
     nombre VARCHAR(200),
-    telefono VARCHAR(20),
+    telefono VARCHAR(13),
     CONSTRAINT pk_auxiliar_id_auxiliares PRIMARY KEY (auxiliar_id)
 );
 
@@ -111,14 +111,14 @@ CREATE TABLE ruta_auxiliares (
 CREATE TABLE clientes (
     cliente_id INT AUTO_INCREMENT,
     nombre VARCHAR(100),
-    email VARCHAR(100),
-    direccion VARCHAR(200),
+    email VARCHAR(60),
+    direccion VARCHAR(100),
     CONSTRAINT pk_cliente_id_clientes PRIMARY KEY (cliente_id)
 );
 
 CREATE TABLE telefonos_clientes (
     telefono_id INT AUTO_INCREMENT,
-    numero VARCHAR(20),
+    numero VARCHAR(13),
     cliente_id INT,
     CONSTRAINT pk_telefono_cliente_id_telefonos_clientes PRIMARY KEY (telefono_id),
     CONSTRAINT fk_telefono_cliente_telefonos_clientes FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id)
@@ -135,7 +135,7 @@ CREATE TABLE paquetes (
     numero_seguimiento VARCHAR(50),
     peso DECIMAL(10,2),
     dimensiones VARCHAR(50),
-    contenido TEXT,
+    contenido TINYTEXT,
     valor_declarado DECIMAL(10,2),
     servicio_id INT,
     CONSTRAINT pk_paquete_id_paquetes PRIMARY KEY (paquete_id),
@@ -147,7 +147,7 @@ CREATE TABLE envios (
     cliente_id INT,
     paquete_id INT,
     fecha_envio TIMESTAMP,
-    destino VARCHAR(200),
+    destino VARCHAR(100),
     ruta_id INT,
     CONSTRAINT pk_envio_id_envios PRIMARY KEY (envio_id),
     CONSTRAINT fk_envio_cliente_envios FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
@@ -164,7 +164,7 @@ CREATE TABLE tipo_estados (
 CREATE TABLE seguimientos (
     seguimiento_id INT AUTO_INCREMENT,
     paquete_id INT,
-    ubicacion VARCHAR(200),
+    ubicacion VARCHAR(100),
     fecha_hora TIMESTAMP,
     estado_id INT,
     CONSTRAINT pk_seguimiento_id_seguimientos PRIMARY KEY (seguimiento_id),
