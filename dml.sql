@@ -120,12 +120,25 @@ INSERT INTO tipo_servicios VALUES (2, 'internacional');
 INSERT INTO tipo_servicios VALUES (3, 'exprés');
 INSERT INTO tipo_servicios VALUES (4, 'estándar');
 
+-- -> tabla tipo_estados
+INSERT INTO tipo_estados VALUES (1, 'recibido');
+INSERT INTO tipo_estados VALUES (2, 'en tránsito');
+INSERT INTO tipo_estados VALUES (3, 'entregado');
+INSERT INTO tipo_estados VALUES (4, 'retenido en aduana');
+
 -- -> tabla paquetes
-INSERT INTO paquetes VALUES (1, 5, 10.50, '30x30x30', 'Ropa', 100.00, 1);
-INSERT INTO paquetes VALUES (2, 4, 20.00, '40x40x40', 'Electrónicos', 200.00, 2);
-INSERT INTO paquetes VALUES (3, 3, 15.75, '35x35x35', 'Libros', 150.00, 3);
-INSERT INTO paquetes VALUES (4, 2, 5.20, '25x25x25', 'Juguetes', 50.00, 4);
-INSERT INTO paquetes VALUES (5, 1, 12.30, '32x32x32', 'Zapatos', 120.00, 1);
+INSERT INTO paquetes VALUES (1, 10.50, '30x30x30', 'Ropa', 100.00, 1);
+INSERT INTO paquetes VALUES (2, 20.00, '40x40x40', 'Electrónicos', 200.00, 2);
+INSERT INTO paquetes VALUES (3, 15.75, '35x35x35', 'Libros', 150.00, 3);
+INSERT INTO paquetes VALUES (4, 5.20, '25x25x25', 'Juguetes', 50.00, 4);
+INSERT INTO paquetes VALUES (5, 12.30, '32x32x32', 'Zapatos', 120.00, 1);
+
+-- -> tabla seguimientos
+INSERT INTO seguimientos VALUES (1, 2, 'Bogotá', '2024-06-20 15:00:00', 1);
+INSERT INTO seguimientos VALUES (2, 3, 'Buenos Aires', '2024-06-20 16:00:00', 2);
+INSERT INTO seguimientos VALUES (3, 5, 'Lima', '2024-06-20 17:00:00', 3);
+INSERT INTO seguimientos VALUES (4, 1, 'Santiago', '2024-06-20 18:00:00', 4);
+INSERT INTO seguimientos VALUES (5, 4, 'São Paulo', '2024-06-20 19:00:00', 1);
 
 -- -> tabla envios
 INSERT INTO envios VALUES (1, 2, 3, '2024-06-20 10:00:00', 'Medellín', 1);
@@ -133,16 +146,3 @@ INSERT INTO envios VALUES (2, 3, 4, '2024-06-20 11:00:00', 'Córdoba', 2);
 INSERT INTO envios VALUES (3, 4, 5, '2024-06-20 12:00:00', 'Cusco', 3);
 INSERT INTO envios VALUES (4, 5, 1, '2024-06-20 13:00:00', 'Valparaíso', 4);
 INSERT INTO envios VALUES (5, 1, 2, '2024-06-20 14:00:00', 'Rio de Janeiro', 5);
-
--- -> tabla tipo_estados
-INSERT INTO tipo_estados VALUES (1, 'recibido');
-INSERT INTO tipo_estados VALUES (2, 'en tránsito');
-INSERT INTO tipo_estados VALUES (3, 'entregado');
-INSERT INTO tipo_estados VALUES (4, 'retenido en aduana');
-
--- -> tabla seguimientos
-INSERT INTO seguimientos VALUES (1, 1, 'Bogotá', '2024-06-20 15:00:00', 1);
-INSERT INTO seguimientos VALUES (2, 2, 'Buenos Aires', '2024-06-20 16:00:00', 2);
-INSERT INTO seguimientos VALUES (3, 3, 'Lima', '2024-06-20 17:00:00', 3);
-INSERT INTO seguimientos VALUES (4, 4, 'Santiago', '2024-06-20 18:00:00', 4);
-INSERT INTO seguimientos VALUES (5, 5, 'São Paulo', '2024-06-20 19:00:00', 1);

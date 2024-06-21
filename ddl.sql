@@ -132,7 +132,6 @@ CREATE TABLE tipo_servicios (
 
 CREATE TABLE paquetes (
     paquete_id INT AUTO_INCREMENT,
-    seguimiento_id INT,
     peso DECIMAL(10,2),
     dimensiones VARCHAR(50),
     contenido TINYTEXT,
@@ -171,6 +170,3 @@ CREATE TABLE seguimientos (
     CONSTRAINT fk_seguimientos_paquetes_paquete_id FOREIGN KEY (paquete_id) REFERENCES paquetes(paquete_id),
     CONSTRAINT fk_seguimientos_tipo_estados_estado_id FOREIGN KEY (estado_id) REFERENCES tipo_estados(estado_id)
 );
-
-ALTER TABLE paquetes
-ADD CONSTRAINT fk_paquetes_seguimientos_seguimiento_id FOREIGN KEY (seguimiento_id) REFERENCES seguimientos(seguimiento_id);
